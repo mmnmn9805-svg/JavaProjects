@@ -1,0 +1,43 @@
+class User {
+    private String username;
+    private String password;
+
+    public void setUsername(String uName) {
+        username = uName;
+    }
+
+    
+    public void setPassword(String pass) {
+        if (pass.length() >= 6) {
+            password = pass;
+        } else {
+            System.out.println("خطأ: كلمة المرور قصيرة جداً!");
+        }
+    }
+
+    
+    public void login(String inputUser, String inputPass) {
+        if (inputUser.equals(username) && inputPass.equals(password)) {
+            System.out.println("تم تسجيل الدخول بنجاح!");
+        } else {
+            System.out.println("خطأ: اسم المستخدم أو كلمة المرور غير صحيحة!");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        User u1 = new User();
+        u1.setUsername("ali123");
+        u1.setPassword("secret123");
+
+        
+        System.out.println("--- التجربة الأولى (بيانات صحيحة) ---");
+        u1.login("ali123", "secret123");
+
+        
+        System.out.println("--- التجربة الثانية (بيانات خاطئة) ---");
+        u1.login("ali123", "wrongpass");
+    }
+}
