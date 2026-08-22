@@ -1,0 +1,46 @@
+class Product {
+    private String name;
+    private double price;
+    private int quantity;
+
+    public void setName(String pName) {
+        name = pName;
+    }
+
+    
+    public void setPrice(double pPrice) {
+        if (pPrice > 0) {
+            price = pPrice;
+        } else {
+            System.out.println("خطأ في السعر!");
+        }
+    }
+
+    
+    public void setQuantity(int pQuantity) {
+        if (pQuantity >= 0) {
+            quantity = pQuantity;
+        } else {
+            System.out.println("خطأ في الكمية!");
+        }
+    }
+
+    public void displayInfo() {
+        System.out.println("اسم المنتج: " + name);
+        System.out.println("السعر: " + price);
+        System.out.println("الكمية: " + quantity);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Product book = new Product();
+        book.setName("Book");
+        book.setPrice(10);
+        book.setQuantity(50);
+
+        
+        book.displayInfo();
+    }
+}
